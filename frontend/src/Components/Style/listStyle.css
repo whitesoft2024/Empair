@@ -1,0 +1,223 @@
+body {
+    font-family: 'lato', sans-serif;
+  }
+  .container {
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  h2 {
+    font-size: 26px;
+    margin: 20px 0;
+    text-align: center;
+    color: #000000;
+    small {
+      font-size: 0.5em;
+    }
+  }
+  
+  .responsive-table {
+    li {
+      border-radius: 3px;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 25px;
+    }
+    .table-header {
+      background-color: #95A5A6;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .table-row {
+      background-color: #ffffff;
+      color: #000000;
+      box-shadow: 0px 9px 9px 0px rgba(0,0,0,0.1);
+    }
+    .col {
+      flex: 0 1 auto; /* Flex column to take up only the space it needs */
+      white-space: nowrap; /* Prevent text from wrapping */
+    }  
+    .col-1 {
+      flex-basis: 5%;
+    }
+    .col-2 {
+      flex-basis: 20%;
+    }
+    .col-3 {
+      flex-basis: 10%;
+    }
+    .col-4 {
+      flex-basis: 10%;
+    }
+    .col-5 {
+      flex-basis: 10%;
+    }
+    .col-6 {
+      flex-basis: 10%;
+    }
+    .col-7 {
+      flex-basis: 20%;
+    }
+    .col-8 {
+      flex-basis: 1%;
+    }
+    
+    @media all and (max-width: 767px) {
+      .table-header {
+        display: none;
+      }
+      .table-row{
+        
+      }
+      li {
+        display: block;
+      }
+      .col {
+        
+        flex-basis: 100%;
+        display: flex;
+        padding: 10px 0;
+      }
+      .col {
+        display: flex;
+        padding: 10px 0;
+        &:before {
+          color: #6C7A89;
+          padding-right: 10px;
+          content: attr(data-label);
+          flex-basis: 50%;
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    /* position:relative; */
+    bottom: 20px;  /* Position from the bottom of the screen */
+    right: 20px;   /* Position from the right of the screen */
+    z-index: 1000; /* Ensure it appears above other content */
+    /* background-color: rgba(0, 0, 0, 0.5); Optional background for visibility */
+    padding: 10px;
+    border-radius: 8px; /* Optional: rounded corners */
+}
+
+.pagination button {
+    background-color: #3d4144;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.pagination button:hover {
+    background-color: #1f272a;
+}
+
+.pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.page-numbers {
+    display: flex;
+    gap: 5px;
+}
+
+.page-numbers button {
+    background-color: #f1f1f1;
+    color: #333;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: 1px solid #ccc;
+}
+
+.page-numbers button:hover {
+    background-color: #ddd;
+}
+
+.page-numbers button.active {
+    background-color: #20566f;
+    color: white;
+}
+
+
+/* Full-Screen Overlay with Blur Effect */
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.8); /* semi-transparent background */
+  backdrop-filter: blur(5px); /* apply blur effect */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+/* Centered Clock Loader */
+.clock-loader {
+  --clock-color: var(--primary-color, #0e2b3f);
+  --clock-width: 3rem;
+  --clock-radius: calc(var(--clock-width) / 2);
+  --clock-minute-length: calc(var(--clock-width) * 0.4);
+  --clock-hour-length: calc(var(--clock-width) * 0.2);
+  --clock-thickness: 0.2rem;
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--clock-width);
+  height: var(--clock-width);
+  border: 2px solid var(--clock-color);
+  border-radius: 20%;
+}
+
+.clock-loader::before,
+.clock-loader::after {
+  position: absolute;
+  content: "";
+  top: calc(var(--clock-radius) * 0.25);
+  width: var(--clock-thickness);
+  background: var(--clock-color);
+  border-radius: 2px;
+  transform-origin: center calc(100% - calc(var(--clock-thickness) / 2));
+  animation: spin infinite linear;
+}
+
+.clock-loader::before {
+  height: var(--clock-minute-length);
+  animation-duration: 2s;
+}
+
+.clock-loader::after {
+  top: calc(var(--clock-radius) * 0.25 + var(--clock-hour-length));
+  height: var(--clock-hour-length);
+  animation-duration: 15s;
+}
+
+@keyframes spin {
+  to {
+      transform: rotate(1turn);
+  }
+}
+
+
+/* css data for Table */
+

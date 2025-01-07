@@ -1,0 +1,254 @@
+/* ------------------Register--------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins", sans-serif;
+}
+.step-content {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .step-content.active {
+    opacity: 1;
+  }
+
+.RegMain {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(214, 218, 220);
+    /* background: linear-gradient(to right, #3a7887, rgb(14, 31, 16)); */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.logContainer{
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.35);
+    position: relative;
+    overflow: hidden;
+    width: 90%;
+    height: 85%;
+    max-width: 100%;
+    min-height: 480px;
+    
+}
+.logContainer p{
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.3px;
+    margin: 20px 0;
+}
+.logContainer span{
+    font-size: 12px;
+}
+.logContainer a{
+    color: #ccc;
+    font-size: 13px;
+    text-decoration: none;
+    margin: 15px 0 10px;
+}
+
+.logContainer button{
+    background-color: #3a7887;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px 45px;
+    border-radius:8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.logContainer button.hidden{
+    background-color: transparent;
+    border-color: #3799ba;
+}
+
+.logContainer form{
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    height: 100%;
+}
+.logContainer input{
+    background-color: #eee;
+    border:none;
+    outline: none;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 13px;
+    padding: 10px 15px;
+    margin: 8px;
+}
+.form-logContainer {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+}
+.sign-in{
+    left: 0;
+    width: 50%;
+    z-index: 1;
+}
+.logContainer .active .sign-in{
+    transform: translateX(100%);
+}
+.sign-up{
+    right: 0;
+    width: 50%;
+    opacity: 1;
+    z-index: 3;
+}
+.logContainer .active .sign-up{
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+    animation: move 0.6s;
+}
+@keyframes move{
+    0%, 49.99%{
+        opacity: 0;
+        z-index: 1;
+    }
+    50%, 100%{
+        opacity: 1;
+        z-index: 5;
+    }
+}
+.social-icons{
+    margin: 20px 0;
+}
+.social-icons a{
+    border: 1px solid #ccc;
+    border-radius: 20%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 3px;
+    height: 40px;
+    width: 40px;
+}
+.toggle-logContainer{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: all 0.6s ease-in-out;
+    border-radius: 150px 0 0 100px;
+    z-index: 1000;
+}
+.logContainer.active .toggle-logContainer{
+    transform: translateX(-100%);
+    border-radius: 0 150px 100px 0;
+}
+.toggle{
+    background-color: #3a7887;
+    height: 100%;
+    color: white;
+    background: linear-gradient(to right, #5c8c97 , #3a7887);
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+
+
+}
+.logContainer.active .toggle{
+    transform: translateX(50%);
+}
+.toggle-panel{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 30px;
+    text-align: center;
+    top: 0;
+    transform: translateX(0);
+    transition: all 0.6s ease-in-out;
+}
+.toggle-left{
+    transform: translateX(-200%);
+}
+.logContainer.active .toggle-left{
+    transform: translateX(0);
+}
+.toggle-right{
+    transform: translateX(0);
+    right: 0;
+}
+.logContainer.active .toggle-right{
+    transform: translateX(200%);
+
+}
+@media screen and (max-width: 768px) {
+    .register-form {
+      max-width: 90%;
+      padding: 0 1rem;
+    }
+  
+    .register-avatar, .register-title {
+      margin-left: 0 !important;
+    }
+  
+    .register-form input, .register-form button {
+      width: 100%;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .register-form {
+      max-width: 100%;
+      padding: 0;
+    }
+  
+    .register-form input, .register-form button {
+      width: 100%;
+    }
+  }
+
+/* /welcome/ */
+
+
+/* Add this to your global CSS file */
+.reference-id-cell {
+    position: relative;
+  }
+  
+  .reference-id-cell::after {
+    content: attr(data-tip);
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  .reference-id-cell:hover::after {
+    opacity: 1;
+    visibility: visible;
+  }
+  
