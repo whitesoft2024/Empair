@@ -32,7 +32,7 @@ const ItemSchema = new mongoose.Schema({
 
 // Transaction schema
 const TransactionSchema = new mongoose.Schema({
-  Date : {type : Date , required:true},
+  Date : {type : String , required:true},
   BillNo: { type: String, required: true },
   TransactionType: { type: String, required: true },
   TransactionId: { type: String, required: true },

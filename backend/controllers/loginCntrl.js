@@ -4,45 +4,6 @@ const bcrypt = require('bcrypt');
 const nodemailer = require('nodemailer');
 const jwt = require('jsonwebtoken'); 
 
-// exports.addUser = async (req, res) => {
-//     try {
-//         const newSignupuser = new userRegister(req.body);
-//         await newSignupuser.save();
-//         res.status(200).json({ message: 'Signup added successfully' });
-//     } catch (error) {
-//         console.error(error);
-//         res.status(500).json({ error: 'Internal Server Error' });
-//     }
-// }
-//send otp
-
-
-// exports.addUser = async (req, res) => {
-//   try {
-//       const { email, mobileNo } = req.body;
-
-//       // Check if email already exists
-//       const existingEmail = await userRegister.findOne({ email });
-//       if (existingEmail) {
-//           return res.status(400).json({ message: 'Email already exists' });
-//       }
-
-//       // Check if mobile number already exists
-//       const existingMobile = await userRegister.findOne({ mobileNo });
-//       if (existingMobile) {
-//           return res.status(400).json({ message: 'Mobile number already exists' });
-//       }
-
-//       // Create a new user if email and mobile number do not exist
-//       const newSignupuser = new userRegister(req.body);
-//       await newSignupuser.save();
-//       res.status(200).json({ message: 'Signup added successfully' });
-//   } catch (error) {
-//       console.error(error);
-//       res.status(500).json({ error: 'Internal Server Error' });
-//   }
-// };
-
 exports.addUser = async (req, res) => {
   try {
       const { fullname, mobileNo, username, email, password } = req.body;
